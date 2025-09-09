@@ -31,4 +31,7 @@ public class ProductEntity {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductImageEntity> images;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private CategoryEntity category;
 }
