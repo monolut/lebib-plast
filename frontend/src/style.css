@@ -1,0 +1,216 @@
+@charset "UTF-8";
+
+/*--------------------
+  #  Fonturi și culori
+----------------------*/
+
+/* Fonturi */
+:root {
+    --default-font:"Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Montserrat",  sans-serif;
+    --nav-font: "Open Sans",  sans-serif;
+}
+
+/* Culori generale */
+:root {
+    --background-color: #ffffff;
+    --default-color: #444444;
+    --heading-color: #172624;
+    --accent-color: #83C5BE;
+    --surface-color: ;
+    --contrast-color: ;
+}
+
+/* Culori pentru navbar */
+:root {
+    --nav-color: #222222;
+    --nav-hover-color: #83C5BE;
+    --nav-mobile-background-color: #ffffff;
+    --nav-dropdown-background-color: #ffffff;
+    --nav-dropdown-color: #222222;
+    --nav-dropdown-hover-color: #83C5BE;
+}
+
+.light-background {
+  --background-color: #f7fbfa;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+    --background-color: #83C5BE;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #252525;
+    --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+    scroll-behavior: smooth;
+}
+
+/*-----------------------------------
+  #  Stiluri generale && clase comune
+-------------------------------------*/
+body {
+    background-color: var(--background-color);
+    color: var(--default-color);
+    font-family: var(--default-font);
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+span{
+    color: #ffffff;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+}
+
+/*---------
+  #  Header
+-----------*/
+.header {
+    background-color: var(--background-color);
+    color: var(--default-color);
+    transition: all 0.5s;
+    z-index: 997;
+    position: sticky;
+    margin-top: 0;
+    padding: 0;
+    display: block;
+    height: 40px;
+    font-size: 14px;
+}
+
+/*---------
+  #  Topbar
+-----------*/
+.topbar{
+    display: block;
+    background-color: var(--background-color);
+    align-items: center;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    font-style: normal;
+    transition: all 0.5s;
+}
+    .containertopbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1295px;
+        margin: 0 auto;
+        padding: 11px 12px;
+        width: 100%;
+        font-style: normal;
+    }
+        .contact-info{
+            display: flex;
+            align-items: center;
+            float: left;
+            font-style: normal;
+            color: var(--contrast-color);
+        }
+        .atopbar{
+            background-color: var(--background-color);
+            color: var(--default-color);
+            margin-left: 5px;
+        }
+        .a2{
+            margin-left: 20px;
+        }
+        .atopbar:hover {
+            opacity: 65%;
+            text-decoration: underline;
+        }
+            .envelope{
+                display: flex;
+                align-items: center;
+            }
+            .phone{
+                display: flex;
+                align-items: center;
+                margin-left: 1.5rem;
+            }
+        .social-links{
+            display: flex;
+            float: right;
+        }
+        @media (min-width: 768px) {
+            .social-links {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+/*---------
+  #  Navbar
+-----------*/
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--default-color);
+    padding: 10px 0;
+    max-height: 60px;
+}
+    .contaienrnavbar{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1295px;
+        margin: 0 auto;
+        width: 100%;
+        font-style: normal;
+    }
+        .anavbar{
+          text-decoration: none;
+        }
+        ul{
+            display: flex;
+            position: relative;
+            transition: 0.3s;
+            color: var(--default-color);
+        }
+            li{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-left: 50px;
+              color: var(--default-color);
+              font-size: 15px;
+              font-family: var(--default-font);
+            }
+                .ali{
+                    font-family: var(--default-font);
+                    color: var(--default-color);
+                    font-size: medium;
+                    font-weight: 500;
+                }
+                .ali:hover {
+                  color: var(--accent-color);
+                  opacity: 120%;
+                }
+
+/*-------
+  #  Main
+---------*/
+
+/*--------
+  #  About
+----------*/
+
+/*-----------
+  #  Products
+-------------*/
