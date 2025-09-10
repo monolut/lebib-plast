@@ -1,8 +1,14 @@
 package lebib.team.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Table(name = "product_image")
 public class ProductImageEntity {
 
     @Id

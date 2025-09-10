@@ -1,10 +1,16 @@
 package lebib.team.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor()
+@Getter
+@Setter
+@Table(name = "user")
 public class UserEntity {
 
     @Id
@@ -23,5 +29,9 @@ public class UserEntity {
     @Column(name = "gender", length = 30, nullable = false)
     private String gender;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private ProfileEntity profile;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    private CartEntity cart;
 }
