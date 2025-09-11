@@ -16,5 +16,10 @@ public class CartItemEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id", nullable = false)
     private CartEntity cart;
+
+   @ManyToOne(fetch = FetchType.LAZY)
+   @JoinColumn(name = "product_id", nullable = false)
+   private ProductEntity product;
 }

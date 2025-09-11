@@ -31,4 +31,7 @@ public class ProductEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private CategoryEntity category;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItemEntity> cartItem;
 }
