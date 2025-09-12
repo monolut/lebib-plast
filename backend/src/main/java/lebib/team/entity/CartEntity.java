@@ -17,12 +17,12 @@ public class CartEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "cart", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Column(name = "total_amount", nullable = false)
+    private Double totalAmount;
+
+    @OneToOne(mappedBy = "cart")
     private UserEntity user;
 
     @OneToMany(mappedBy = "cart",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItemEntity> cartItems;
-
-    @Column(name = "total_amount", nullable = false)
-    private Double totalAmount;
 }

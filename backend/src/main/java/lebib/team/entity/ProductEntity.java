@@ -26,10 +26,11 @@ public class ProductEntity {
     @Column(name = "price", nullable = false)
     private double price;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductImageEntity> images;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch =  FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
     private CategoryEntity category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
