@@ -1,5 +1,5 @@
 package lebib.team.dto;
 
-public record OrderDto() {
+public class OrderDto {
 
 }

@@ -1,4 +1,4 @@
 package lebib.team.dto;
 
-public record OrderItemDto() {
+public class OrderItemDto {
 }

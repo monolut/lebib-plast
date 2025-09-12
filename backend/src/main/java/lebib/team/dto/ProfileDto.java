@@ -1,4 +1,4 @@
 package lebib.team.dto;
 
-public record ProfileDto() {
+public class ProfileDto {
 }

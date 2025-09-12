@@ -1,4 +1,4 @@
 package lebib.team.dto;
 
-public record AddressDto() {
+public class AddressDto {
 }

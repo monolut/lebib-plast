@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "role")
+@Table(name = "roles")
 public class RoleEntity {
 
     @Id
@@ -19,9 +19,9 @@ public class RoleEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", length = 50, nullable = false)
-    private Role role;
+    @Column(name = "role_name", length = 50, nullable = false)
+    private Role roleName;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
     private List<UserEntity> users;
 }

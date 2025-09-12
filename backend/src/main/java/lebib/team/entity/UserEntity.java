@@ -36,13 +36,19 @@ public class UserEntity {
     private ProfileEntity profile;
 
     @OneToOne(cascade =  CascadeType.ALL)
-    @JoinColumn(name = "cart_id",  referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "cart_id",  referencedColumnName = "id")
     private CartEntity cart;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<AddressEntity> address;
+    private List<AddressEntity> addresses;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
     private RoleEntity role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ReviewEntity> reviews;
+
+    @OneToMany(mappedBy ="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderEntity> orders;
 }
