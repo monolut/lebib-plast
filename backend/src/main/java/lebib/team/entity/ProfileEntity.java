@@ -1,10 +1,13 @@
 package lebib.team.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
@@ -18,4 +21,10 @@ public class ProfileEntity {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
+
+    @Column(name = "bio", length = 1000)
+    private String bio;
+
+    @Column(name = "avatar_url")
+    private String avatarUrl;
 }

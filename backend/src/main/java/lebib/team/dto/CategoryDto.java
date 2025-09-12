@@ -1,8 +1,14 @@
 package lebib.team.dto;
 
-import lebib.team.entity.ProductEntity;
+import lombok.*;
 
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryDto {
+    private Long id;
+    private String categoryName;
+    private List<ProductDto> products;
 }

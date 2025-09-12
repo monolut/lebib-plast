@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
@@ -24,8 +24,8 @@ public class AddressEntity {
     @Column(name = "street", nullable = false)
     private String street;
 
-    @Column(name = "zip_code", nullable = false)
-    private String zipCode;
+    @Column(name = "postal_code", nullable = false)
+    private String postalCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

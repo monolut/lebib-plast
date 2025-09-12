@@ -1,12 +1,15 @@
 package lebib.team.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
@@ -20,8 +23,8 @@ public class ReviewEntity {
     @Column(name = "text", length = 1000, nullable = false)
     private String text;
 
-    @Column(name = "review_time", nullable = false)
-    private LocalDateTime reviewTime;
+    @Column(name = "review_date", nullable = false)
+    private LocalDateTime reviewDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
