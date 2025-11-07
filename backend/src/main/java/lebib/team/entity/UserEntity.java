@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,15 +36,20 @@ public class UserEntity {
     @Column(name = "gender", length = 30, nullable = false)
     private Gender gender;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @Column(name = "email", length = 50, nullable = false)
+    private String email;
+
+    @Column(name = "password", length = 30, nullable = false)
+    private String password;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private ProfileEntity profile;
 
-    @OneToOne(cascade =  CascadeType.ALL)
-    @JoinColumn(name = "cart_id",  referencedColumnName = "id")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private CartEntity cart;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<AddressEntity> addresses;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AddressEntity> addresses = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
@@ -52,6 +58,6 @@ public class UserEntity {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ReviewEntity> reviews;
 
-    @OneToMany(mappedBy ="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderEntity> orders;
 }

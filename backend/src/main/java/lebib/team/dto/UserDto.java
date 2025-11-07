@@ -18,8 +18,9 @@ public class UserDto {
     private LocalDate birthDate;
     private Gender gender;
     private ProfileDto profile;
+    private String email;
     private CartDto cart;
-    private List<AddressDto> address;
+    private List<AddressDto> addresses;
     private RoleDto role;
     private List<OrderDto> orders;
     private List<ReviewDto> reviews;

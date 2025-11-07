@@ -5,11 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-
-    List<ProductEntity> findByUserId(Long userId);
+public interface  ProductRepository extends JpaRepository<ProductEntity, Long> {
 
     List<ProductEntity> findByName(String name);
 
-    List<ProductEntity> findByCategory(String category);
+    List<ProductEntity> findByCategoryName(String categoryName);
 }

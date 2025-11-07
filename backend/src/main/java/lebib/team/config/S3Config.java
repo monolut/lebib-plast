@@ -1,27 +1,32 @@
 package lebib.team.config;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
-import software.amazon.awssdk.auth.credentials.AwsCredentials;
-import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.s3.S3Client;
 
 @Configuration
 public class S3Config {
 
+    @Value("${aws.access-key}")
     private String accessKey;
 
+    @Value("${aws.secret-key}")
     private String secretKey;
 
+    @Value("${aws.region}")
     private String regionName;
 
-    public S3Client s3Client() {
-        AwsCredentials credentials = AwsBasicCredentials.create(accessKey, secretKey);
+    @Bean
+    public AmazonS3 s3Client() {
+        BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 
-        return S3Client
-                .builder()
-                .region(Region.of(regionName)).credentialsProvider(StaticCredentialsProvider.create(credentials))
+        return AmazonS3ClientBuilder.standard()
+                .withRegion(regionName)
+                .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .build();
     }
 

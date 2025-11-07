@@ -28,4 +28,17 @@ public class CartItemEntity {
    @ManyToOne(fetch = FetchType.LAZY)
    @JoinColumn(name = "product_id", nullable = false)
    private ProductEntity product;
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(!(obj instanceof CartItemEntity)) return false;
+        CartItemEntity that = (CartItemEntity) obj;
+        return product != null && product.getId().equals(that.product.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return product != null ? product.getId().hashCode() : 0;
+    }
 }

@@ -1,0 +1,15 @@
+package lebib.team.repository;
+
+import lebib.team.entity.PaymentEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public interface PaymentRepository extends JpaRepository<PaymentEntity, Long> {
+    List<PaymentEntity> findByOrderDateBetween(LocalDateTime start, LocalDateTime end);
+
+    List<PaymentEntity> findByAmountBetween(Double amountFrom, Double amountTo);
+
+    List<PaymentEntity> findByOrderId(Long orderId);
+}
