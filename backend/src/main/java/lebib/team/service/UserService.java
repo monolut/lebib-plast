@@ -12,6 +12,7 @@ import lebib.team.mapper.UserMapper;
 import lebib.team.repository.RoleRepository;
 import lebib.team.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,14 +27,16 @@ public class UserService {
     private final UserMapper userMapper;
     private final CartService cartService;
     private final ProfileService profileService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, UserMapper userMapper, CartService cartService, ProfileService profileService) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, UserMapper userMapper, CartService cartService, ProfileService profileService, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.cartService = cartService;
         this.roleRepository = roleRepository;
         this.profileService = profileService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<UserDto> findAllUsers() {
@@ -59,6 +62,8 @@ public class UserService {
             throw UserNotFoundException.emailExists(userDto.getEmail());
 
         UserEntity user = userMapper.toEntity(userDto);
+
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         ProfileEntity profile = profileService.createProfileForUser(user);
         user.setProfile(profile);

@@ -4,8 +4,13 @@ import lebib.team.dto.UserDto;
 import lebib.team.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/user/users")
@@ -17,6 +22,15 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping
+    public ResponseEntity<Map<String, String>> getGreetings(@AuthenticationPrincipal UserDetails userDetails) {
+        UserDto user = userService.findByEmail(userDetails.getUsername());
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(Map.of("greetings", "Hello, %s"
+                        .formatted(user.getName())));
     }
 
     @PostMapping

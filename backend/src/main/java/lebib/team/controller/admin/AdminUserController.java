@@ -1,12 +1,12 @@
 package lebib.team.controller.admin;
 
 import lebib.team.dto.UserDto;
+import lebib.team.service.AdminService;
 import lebib.team.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,9 +15,16 @@ import java.util.List;
 public class AdminUserController {
 
     private final UserService userService;
+    private final AdminService adminService;
 
-    public AdminUserController(UserService userService) {
+    public AdminUserController(UserService userService, AdminService adminService) {
         this.userService = userService;
+        this.adminService = adminService;
+    }
+
+    @PostMapping
+    public ResponseEntity<UserDto> createAdmin(@RequestBody UserDto userDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(adminService.createAdmin(userDto));
     }
 
     @GetMapping

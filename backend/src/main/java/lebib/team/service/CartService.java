@@ -1,7 +1,6 @@
 package lebib.team.service;
 
 import lebib.team.dto.CartDto;
-import lebib.team.dto.CartItemDto;
 import lebib.team.entity.CartEntity;
 import lebib.team.entity.CartItemEntity;
 import lebib.team.entity.ProductEntity;
@@ -16,8 +15,6 @@ import lebib.team.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Transactional(readOnly = true)
 @Service

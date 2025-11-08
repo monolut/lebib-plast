@@ -39,7 +39,7 @@ public class UserEntity {
     @Column(name = "email", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "password", length = 30, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
@@ -51,7 +51,7 @@ public class UserEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AddressEntity> addresses = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
     private RoleEntity role;
 

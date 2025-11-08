@@ -19,6 +19,7 @@ public class UserDto {
     private Gender gender;
     private ProfileDto profile;
     private String email;
+    private String password;
     private CartDto cart;
     private List<AddressDto> addresses;
     private RoleDto role;
