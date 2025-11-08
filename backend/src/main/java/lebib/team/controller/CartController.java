@@ -30,12 +30,18 @@ public class CartController {
     }
 
     @PutMapping("/users/{userId}/product/{productId}")
-    public ResponseEntity<CartDto> addProductToCart(@PathVariable Long userId, @PathVariable Long productId) {
+    public ResponseEntity<CartDto> addProductToCart(
+            @PathVariable Long userId,
+            @PathVariable Long productId
+    ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(cartService.addProductToCart(userId, productId));
     }
 
     @PutMapping("/users/{userId}/cart/items/{productId}")
-    public ResponseEntity<CartDto> removeProductFromCart(@PathVariable Long userId, @PathVariable Long productId) {
+    public ResponseEntity<CartDto> removeProductFromCart(
+            @PathVariable Long userId,
+            @PathVariable Long productId
+    ) {
         return ResponseEntity.ok(cartService.removeProductFromCart(userId, productId));
     }
 
@@ -45,7 +51,11 @@ public class CartController {
     }
 
     @PutMapping("/users/{userId}/cart/items/{productId}/quantity")
-    public ResponseEntity<CartDto> updateQuantityCartItem(@PathVariable Long userId, @PathVariable Long productId, @RequestParam Integer quantity) {
+    public ResponseEntity<CartDto> updateQuantityCartItem(
+            @PathVariable Long userId,
+            @PathVariable Long productId,
+            @RequestParam Integer quantity
+    ) {
         return ResponseEntity.ok(cartService.updateQuantityCartItem(userId, productId, quantity));
     }
 }

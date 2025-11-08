@@ -29,7 +29,12 @@ public class ProductImageService {
     private final ProductImageMapper productImageMapper;
     private final ProductRepository productRepository;
 
-    public ProductImageService(ProductImageRepository productImageRepository, ProductImageMapper productImageMapper, ProductRepository productRepository, AmazonS3 s3Client) {
+    public ProductImageService(
+            ProductImageRepository productImageRepository,
+            ProductImageMapper productImageMapper,
+            ProductRepository productRepository,
+            AmazonS3 s3Client
+    ) {
         this.productImageRepository = productImageRepository;
         this.productImageMapper = productImageMapper;
         this.productRepository = productRepository;

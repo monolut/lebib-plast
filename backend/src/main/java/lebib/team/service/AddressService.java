@@ -23,7 +23,11 @@ public class AddressService {
     private final UserRepository userRepository;
 
     @Autowired
-    public AddressService(AddressRepository addressRepository, AddressMapper addressMapper, UserRepository userRepository) {
+    public AddressService(
+            AddressRepository addressRepository,
+            AddressMapper addressMapper,
+            UserRepository userRepository
+    ) {
         this.addressRepository = addressRepository;
         this.addressMapper = addressMapper;
         this.userRepository = userRepository;

@@ -21,7 +21,11 @@ public class InventoryService {
     private final ProductRepository productRepository;
 
     @Autowired
-    public InventoryService(ProductRepository productRepository, InventoryRepository inventoryRepository, InventoryMapper inventoryMapper) {
+    public InventoryService(
+            ProductRepository productRepository,
+            InventoryRepository inventoryRepository,
+            InventoryMapper inventoryMapper
+    ) {
         this.inventoryMapper = inventoryMapper;
         this.inventoryRepository = inventoryRepository;
         this.productRepository = productRepository;

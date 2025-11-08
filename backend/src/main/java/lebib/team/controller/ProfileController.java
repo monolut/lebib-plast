@@ -32,12 +32,18 @@ public class ProfileController {
     }
 
     @PutMapping("/bio")
-    public ResponseEntity<ProfileDto> updateProfileBio(@PathVariable Long profileId, @RequestParam String newBio) {
+    public ResponseEntity<ProfileDto> updateProfileBio(
+            @PathVariable Long profileId,
+            @RequestParam String newBio
+    ) {
         return ResponseEntity.ok(profileService.updateProfileBio(profileId, newBio));
     }
 
     @PutMapping("/avatar")
-    public ResponseEntity<ProfileDto> updateProfileAvatar(@PathVariable Long profileId, @RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ProfileDto> updateProfileAvatar(
+            @PathVariable Long profileId,
+            @RequestParam("file") MultipartFile file
+    ) {
         return ResponseEntity.ok(profileService.updateProfileAvatar(profileId, file));
     }
 }

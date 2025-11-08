@@ -20,7 +20,10 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Autowired
-    public CategoryService(CategoryMapper categoryMapper, CategoryRepository categoryRepository) {
+    public CategoryService(
+            CategoryMapper categoryMapper,
+            CategoryRepository categoryRepository
+    ) {
         this.categoryMapper = categoryMapper;
         this.categoryRepository = categoryRepository;
     }

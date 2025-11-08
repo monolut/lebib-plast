@@ -24,7 +24,11 @@ public class AdminService {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AdminService(UserRepository userRepository, UserMapper userMapper, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public AdminService(
+            UserRepository userRepository,
+            UserMapper userMapper, RoleRepository roleRepository,
+            PasswordEncoder passwordEncoder
+    ) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.roleRepository = roleRepository;

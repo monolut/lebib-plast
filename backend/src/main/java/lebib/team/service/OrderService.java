@@ -33,7 +33,12 @@ public class OrderService {
     private final ProductRepository productRepository;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository, OrderMapper orderMapper, UserRepository userRepository, CartRepository cartRepository, ProductRepository productRepository) {
+    public OrderService(
+            OrderRepository orderRepository,
+            OrderMapper orderMapper, UserRepository userRepository,
+            CartRepository cartRepository,
+            ProductRepository productRepository
+    ) {
         this.orderRepository = orderRepository;
         this.orderMapper = orderMapper;
         this.userRepository = userRepository;

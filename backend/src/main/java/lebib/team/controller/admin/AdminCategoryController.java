@@ -26,7 +26,10 @@ public class AdminCategoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable Long id) {
+    public ResponseEntity<CategoryDto> updateCategory(
+            @RequestBody CategoryDto categoryDto,
+            @PathVariable Long id
+    ) {
         return ResponseEntity.ok(categoryService.updateCategoryById(id, categoryDto));
     }
 

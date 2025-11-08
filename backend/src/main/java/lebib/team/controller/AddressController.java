@@ -27,17 +27,27 @@ public class AddressController {
     }
 
     @PostMapping
-    public ResponseEntity<AddressDto> createAddress(@PathVariable Long userId, @RequestBody AddressDto addressDto) {
+    public ResponseEntity<AddressDto> createAddress(
+            @PathVariable Long userId,
+            @RequestBody AddressDto addressDto
+    ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.createAddress(userId, addressDto));
     }
 
     @PutMapping("/{addressId}")
-    public ResponseEntity<AddressDto> updateAddress(@PathVariable Long userId, @PathVariable Long addressId, @RequestBody AddressDto addressDto) {
+    public ResponseEntity<AddressDto> updateAddress(
+            @PathVariable Long userId,
+            @PathVariable Long addressId,
+            @RequestBody AddressDto addressDto
+    ) {
         return ResponseEntity.ok(addressService.updateAddress(userId, addressId, addressDto));
     }
 
     @DeleteMapping("/{addressId}")
-    public ResponseEntity<Void> deleteAddress(@PathVariable Long userId, @PathVariable Long addressId) {
+    public ResponseEntity<Void> deleteAddress(
+            @PathVariable Long userId,
+            @PathVariable Long addressId
+    ) {
         addressService.deleteAddress(userId, addressId);
         return ResponseEntity.noContent().build();
     }

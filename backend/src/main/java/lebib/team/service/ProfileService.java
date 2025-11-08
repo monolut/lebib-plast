@@ -28,7 +28,11 @@ public class ProfileService {
     private final ProfileMapper profileMapper;
 
     @Autowired
-    public ProfileService(ProfileRepository profileRepository, ProfileMapper profileMapper, AmazonS3 s3Client) {
+    public ProfileService(
+            ProfileRepository profileRepository,
+            ProfileMapper profileMapper,
+            AmazonS3 s3Client
+    ) {
         this.profileRepository = profileRepository;
         this.profileMapper = profileMapper;
         this.s3Client = s3Client;

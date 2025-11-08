@@ -20,7 +20,10 @@ public class OrderItemService {
     private final OrderRepository orderRepository;
 
     @Autowired
-    public OrderItemService(OrderItemMapper orderItemMapper, OrderRepository orderRepository) {
+    public OrderItemService(
+            OrderItemMapper orderItemMapper,
+            OrderRepository orderRepository
+    ) {
         this.orderRepository = orderRepository;
         this.orderItemMapper = orderItemMapper;
     }

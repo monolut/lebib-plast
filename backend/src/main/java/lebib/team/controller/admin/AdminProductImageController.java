@@ -20,12 +20,18 @@ public class AdminProductImageController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductImageDto> uploadAnImage(@PathVariable Long productId, @RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ProductImageDto> uploadAnImage(
+            @PathVariable Long productId,
+            @RequestParam("file") MultipartFile file
+    ) {
         return ResponseEntity.ok(productImageService.uploadAnImage(productId, file));
     }
 
     @DeleteMapping("/{productImageId}")
-    public ResponseEntity<Void> deleteAnImage(@PathVariable Long productId, @PathVariable Long productImageId) {
+    public ResponseEntity<Void> deleteAnImage(
+            @PathVariable Long productId,
+            @PathVariable Long productImageId
+    ) {
         productImageService.deleteAnImage(productId, productImageId);
         return ResponseEntity.noContent().build();
     }

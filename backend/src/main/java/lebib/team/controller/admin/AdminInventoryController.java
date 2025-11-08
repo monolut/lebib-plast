@@ -19,12 +19,19 @@ public class AdminInventoryController {
     }
 
     @PutMapping("/{inventoryId}")
-    public ResponseEntity<InventoryDto> updateInventory(@PathVariable Long productId, @PathVariable Long inventoryId, @RequestBody Integer quantity) {
+    public ResponseEntity<InventoryDto> updateInventory(
+            @PathVariable Long productId,
+            @PathVariable Long inventoryId,
+            @RequestBody Integer quantity
+    ) {
         return ResponseEntity.ok(inventoryService.updateInventory(inventoryId, productId, quantity));
     }
 
     @DeleteMapping("/{inventoryId}")
-    public ResponseEntity<Void> deleteInventory(@PathVariable Long productId, @PathVariable Long inventoryId) {
+    public ResponseEntity<Void> deleteInventory(
+            @PathVariable Long productId,
+            @PathVariable Long inventoryId
+    ) {
         inventoryService.deleteInventory(inventoryId, productId);
         return ResponseEntity.noContent().build();
     }
