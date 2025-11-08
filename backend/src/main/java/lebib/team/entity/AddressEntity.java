@@ -30,4 +30,7 @@ public class AddressEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
+
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
+    private DeliveryEntity delivery;
 }

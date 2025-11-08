@@ -22,13 +22,19 @@ public class DeliveryEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "delivery_status", nullable = false)
-    private DeliveryStatus deliveryStatus;
+    private DeliveryStatus status;
 
-    @Column(name = "delivery_date")
-    private LocalDateTime deliveryDate;
+    private String deliveryMethod;
+    private Double deliveryCost;
+    private LocalDateTime estimatedArrival;
+    private LocalDateTime shippedAt;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "order_id", unique = true)
     private OrderEntity order;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", unique = true)
+    private AddressEntity address;
 }
+

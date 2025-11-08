@@ -12,9 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class DeliveryDto {
     private Long id;
-    private String address;
-    private LocalDateTime deliveryDate;
-    private DeliveryStatus deliveryStatus;
-
+    private LocalDateTime estimatedArrival;
+    private DeliveryStatus status;
     private Long orderId;
 }
