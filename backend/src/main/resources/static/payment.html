@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оплата заказа</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 40px; }
+        .card { max-width: 420px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+        .row { margin-top: 12px; }
+        label { display: block; margin-bottom: 4px; color: #555; }
+        #card-element { padding: 10px; border: 1px solid #ccc; border-radius: 8px; background: #fafafa; }
+        input, button { width: 100%; margin-top: 8px; padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; }
+        button { border: none; background: #635bff; color: white; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #5048d0; }
+        button:disabled { opacity: .6; cursor: not-allowed; }
+        #result { margin-top: 16px; white-space: pre-line; font-weight: 600; }
+        .muted { color: #666; font-weight: 400; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>Оплата заказа</h2>
+    <div class="row">
+        <label>Номер карты (тест: 4242 4242 4242 4242)</label>
+        <div id="card-element"></div>
+    </div>
+
+    <div class="row">
+        <label>Индекс (postal code)</label>
+        <input id="postal" placeholder="например, 010001" value="010001" />
+    </div>
+
+    <button id="pay-btn">Оплатить</button>
+    <div id="result" class="muted">Готов к оплате.</div>
+</div>
+
+<script>
+    (async function () {
+        // 🚩 ВСТАВЬ СВОЙ publishable key
+        const PUBLIC_KEY = "pk_test_51SRFa1IQLZbpuwVcD16NzVe2vTiuZURw8LzA4Z6o8PIKvLGf6iI73v9BTPJmewSWZI7rKF6V0ud71cY40uzAxYEv00engB5zni";
+        // 🚩 Тестовые данные пользователя и заказа
+        const USER_ID = 1;
+        const ORDER_ID = 1;
+
+        const stripe = Stripe(PUBLIC_KEY);
+        const elements = stripe.elements();
+        const cardElement = elements.create("card", { hidePostalCode: true });
+        cardElement.mount("#card-element");
+
+        const btn = document.getElementById("pay-btn");
+        const out = document.getElementById("result");
+
+        function setStatus(text) {
+            out.textContent = text;
+            console.log(text);
+        }
+
+        btn.addEventListener("click", async () => {
+            btn.disabled = true;
+            setStatus("Создаём платёж на сервере...");
+
+            try {
+                const url = `/api/v1/user/payments/create/${USER_ID}/order/${ORDER_ID}`;
+                console.log("POST ->", url);
+
+                const resp = await fetch(url, { method: "POST" });
+
+                console.log("HTTP status:", resp.status, resp.statusText);
+                const raw = await resp.text();
+                console.log("RAW backend response:", raw);
+
+                if (!resp.ok) {
+                    throw new Error(`Сервер вернул ${resp.status}: ${resp.statusText}\n${raw.slice(0,200)}...`);
+                }
+
+                let data;
+                try {
+                    data = JSON.parse(raw);
+                } catch (e) {
+                    throw new Error("Ответ не JSON. Возможно, страница логина или ошибка.");
+                }
+
+                const clientSecret = data.stripeClientSecret;
+                console.log("clientSecret =", clientSecret);
+
+                if (!clientSecret || typeof clientSecret !== "string") {
+                    throw new Error("Некорректный clientSecret из backend: " + clientSecret);
+                }
+
+                const postal = document.getElementById("postal").value?.trim() || "010001";
+                setStatus("Подтверждаем оплату...");
+
+                const result = await stripe.confirmCardPayment(clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {
+                            name: "Test User",
+                            address: { country: "RO", postal_code: postal }
+                        }
+                    }
+                });
+
+                console.log("Stripe confirm result:", result);
+
+                if (result.error) {
+                    setStatus("❌ Ошибка Stripe: " + result.error.message);
+                    btn.disabled = false;
+                    return;
+                }
+
+                if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
+                    setStatus("✅ Оплата успешна!\nPaymentIntent: " + result.paymentIntent.id);
+                } else {
+                    setStatus("⚠️ Статус: " + (result.paymentIntent && result.paymentIntent.status));
+                }
+
+            } catch (err) {
+                console.error(err);
+                setStatus("❌ " + (err && err.message ? err.message : String(err)));
+            } finally {
+                setTimeout(() => (btn.disabled = false), 1500);
+            }
+        });
+    })();
+</script>
+</body>
+</html>

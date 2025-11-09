@@ -112,6 +112,6 @@ public class PaymentService {
         paymentRepository.save(payment);
         orderRepository.save(order);
 
-        System.out.println("💰 Order #" + order.getId() + " marked as PAID.");
+        System.out.println("Order #" + order.getId() + " marked as PAID.");
     }
 }

@@ -29,6 +29,7 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/v1/user/stripe/webhook").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/user/users").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/user/products").permitAll()
                         .requestMatchers("/api/v1/users/**").hasAnyRole("USER", "ADMIN")
