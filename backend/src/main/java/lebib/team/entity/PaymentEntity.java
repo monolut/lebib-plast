@@ -31,7 +31,13 @@ public class PaymentEntity {
     @Column(name = "payment_date", nullable = false)
     private LocalDateTime paymentDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private OrderEntity order;
+
+    @Column(name = "stripe_payment_intent_id")
+    private String stripePaymentIntentId;
+
+    @Column(name = "stripe_client_secret")
+    private String stripeClientSecret;
 }

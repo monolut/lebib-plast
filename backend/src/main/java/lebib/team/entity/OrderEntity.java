@@ -34,12 +34,12 @@ public class OrderEntity {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private UserEntity user;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-    private PaymentEntity payment;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PaymentEntity> payments = new ArrayList<>();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItemEntity> items = new ArrayList<>();
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-    private DeliveryEntity delivery;
+//    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+//    private DeliveryEntity delivery;
 }

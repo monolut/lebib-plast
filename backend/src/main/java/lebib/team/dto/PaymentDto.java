@@ -14,6 +14,8 @@ public class PaymentDto {
     private Long id;
     private Double amount;
     private LocalDateTime paymentDate;
-    private PaymentStatus status;
+    private PaymentStatus paymentStatus;
+    private String stripeClientSecret;
+    private String stripePaymentIntentId;
     private Long orderId;
 }

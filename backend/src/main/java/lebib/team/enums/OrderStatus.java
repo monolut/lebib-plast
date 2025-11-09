@@ -2,7 +2,10 @@ package lebib.team.enums;
 
 public enum OrderStatus {
     NEW,
-    PROCESSING,
+    PENDING_PAYMENT,
+    PAID,
+    IN_DELIVERY,
     DELIVERED,
-    SHIPPED
+    CANCELED,
+    REFUNDED
 }

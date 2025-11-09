@@ -10,6 +10,4 @@ import java.util.Optional;
 public interface DeliveryRepository extends JpaRepository<DeliveryEntity, Long> {
 
     Optional<DeliveryEntity> findByOrderId(Long orderId);
-
-    List<DeliveryEntity> findByDeliveryDate(LocalDateTime deliveryDate);
 }
