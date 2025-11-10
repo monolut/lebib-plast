@@ -1,5 +1,6 @@
 package lebib.team.controller;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.UserDto;
 import lebib.team.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDto));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(
             @PathVariable Long id,
-            @RequestBody UserDto userDto
+            @Valid @RequestBody UserDto userDto
     ) {
         return ResponseEntity.ok(userService.updateUserById(id, userDto));
     }

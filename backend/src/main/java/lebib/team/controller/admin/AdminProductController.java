@@ -1,5 +1,6 @@
 package lebib.team.controller.admin;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.ProductDto;
 import lebib.team.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class AdminProductController {
     @PutMapping("/{id}")
     public ResponseEntity<ProductDto> updateProductById(
             @PathVariable Long id,
-            @RequestBody ProductDto productDto
+            @Valid @RequestBody ProductDto productDto
     ) {
         return ResponseEntity.ok(productService.updateProductById(id, productDto));
     }

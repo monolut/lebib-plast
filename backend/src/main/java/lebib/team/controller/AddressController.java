@@ -1,5 +1,6 @@
 package lebib.team.controller;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.AddressDto;
 import lebib.team.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class AddressController {
     @PostMapping
     public ResponseEntity<AddressDto> createAddress(
             @PathVariable Long userId,
-            @RequestBody AddressDto addressDto
+            @Valid @RequestBody AddressDto addressDto
     ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.createAddress(userId, addressDto));
     }

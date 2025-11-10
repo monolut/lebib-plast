@@ -1,5 +1,6 @@
 package lebib.team.controller.admin;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.UserDto;
 import lebib.team.service.AdminService;
 import lebib.team.service.UserService;
@@ -23,7 +24,7 @@ public class AdminUserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> createAdmin(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> createAdmin(@Valid @RequestBody UserDto userDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(adminService.createAdmin(userDto));
     }
 

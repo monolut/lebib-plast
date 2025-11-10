@@ -1,5 +1,6 @@
 package lebib.team.controller.admin;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.CategoryDto;
 import lebib.team.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class AdminCategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoryDto> addCategory(@RequestBody CategoryDto categoryDto) {
+    public ResponseEntity<CategoryDto> addCategory(@Valid @RequestBody CategoryDto categoryDto) {
         CategoryDto created = categoryService.createCategory(categoryDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }

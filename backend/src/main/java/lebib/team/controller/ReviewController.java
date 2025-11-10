@@ -1,5 +1,6 @@
 package lebib.team.controller;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.ReviewDto;
 import lebib.team.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class ReviewController {
     public ResponseEntity<ReviewDto> createReview(
             @PathVariable Long userId,
             @PathVariable Long productId,
-            @RequestBody ReviewDto reviewDto
+            @Valid @RequestBody ReviewDto reviewDto
     ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(reviewService.createReview(userId, productId, reviewDto));
     }

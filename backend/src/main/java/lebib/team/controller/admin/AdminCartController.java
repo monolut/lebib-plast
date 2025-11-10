@@ -1,5 +1,6 @@
 package lebib.team.controller.admin;
 
+import jakarta.validation.Valid;
 import lebib.team.dto.CartDto;
 import lebib.team.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class AdminCartController {
     }
 
     @PostMapping("/users/{userId}/cart")
-    public ResponseEntity<CartDto> createCart(@RequestBody CartDto cartDto) {
+    public ResponseEntity<CartDto> createCart(@Valid @RequestBody CartDto cartDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(cartService.createCart(cartDto));
     }
 
