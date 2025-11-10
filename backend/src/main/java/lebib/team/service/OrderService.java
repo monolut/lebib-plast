@@ -2,11 +2,9 @@ package lebib.team.service;
 
 import lebib.team.dto.CartDto;
 import lebib.team.dto.OrderDto;
-import lebib.team.entity.OrderEntity;
-import lebib.team.entity.OrderItemEntity;
-import lebib.team.entity.ProductEntity;
-import lebib.team.entity.UserEntity;
+import lebib.team.entity.*;
 import lebib.team.enums.OrderStatus;
+import lebib.team.exception.CartNotFoundException;
 import lebib.team.exception.OrderNotFoundException;
 import lebib.team.exception.ProductNotFoundException;
 import lebib.team.exception.UserNotFoundException;
@@ -59,24 +57,27 @@ public class OrderService {
     }
 
     @Transactional
-    public OrderDto createOrder(CartDto cartDto) {
-        UserEntity user = userRepository.findById(cartDto.getUserId())
-                .orElseThrow(() -> UserNotFoundException.byId(cartDto.getUserId()));
+    public OrderDto createOrder(Long cartId) {
+        CartEntity cart = cartRepository.findById(cartId)
+                .orElseThrow(() -> CartNotFoundException.byId(cartId));
+
+        UserEntity user = userRepository.findById(cart.getUser().getId())
+                .orElseThrow(() -> UserNotFoundException.byId(cart.getUser().getId()));
 
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setUser(user);
         orderEntity.setOrderStatus(OrderStatus.NEW);
         orderEntity.setDate(LocalDateTime.now());
 
-        List<OrderItemEntity> orderItems = cartDto.getCartItems().stream()
-                .map(cartItemDto -> {
+        List<OrderItemEntity> orderItems = cart.getCartItems().stream()
+                .map(cartItem -> {
                     OrderItemEntity orderItem = new OrderItemEntity();
-                    ProductEntity product = productRepository.findById(cartItemDto.getProductId())
-                            .orElseThrow(() -> new ProductNotFoundException(cartItemDto.getProductId()));
+                    ProductEntity product = productRepository.findById(cartItem.getProduct().getId())
+                            .orElseThrow(() -> new ProductNotFoundException(cartItem.getProduct().getId()));
 
                     orderItem.setOrder(orderEntity);
                     orderItem.setProduct(product);
-                    orderItem.setQuantity(cartItemDto.getQuantity());
+                    orderItem.setQuantity(cartItem.getQuantity());
                     orderItem.setPrice(product.getPrice());
 
                     return orderItem;

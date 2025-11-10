@@ -22,7 +22,7 @@ public class ProfileEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
-    @Column(name = "bio", length = 1000)
+    @Column(name = "bio", length = 300)
     private String bio;
 
     @Column(name = "avatar_url")

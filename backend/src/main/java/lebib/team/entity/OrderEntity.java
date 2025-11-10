@@ -1,6 +1,7 @@
 package lebib.team.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lebib.team.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,9 +38,7 @@ public class OrderEntity {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PaymentEntity> payments = new ArrayList<>();
 
+    @Valid
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItemEntity> items = new ArrayList<>();
-
-//    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-//    private DeliveryEntity delivery;
 }

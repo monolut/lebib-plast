@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,9 +23,8 @@ public class RoleEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role_name", length = 50, nullable = false)
     private Role roleName;
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
-    private List<UserEntity> users;
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<UserEntity> users = new ArrayList<>();
 }

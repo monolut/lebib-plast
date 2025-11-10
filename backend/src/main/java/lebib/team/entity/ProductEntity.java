@@ -1,11 +1,13 @@
 package lebib.team.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +22,7 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100, name = "name", nullable = false)
+    @Column(length = 30, name = "name", nullable = false)
     private String name;
 
     @Column(length = 2000, name = "description", nullable = false)
@@ -30,18 +32,21 @@ public class ProductEntity {
     private Double price;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductImageEntity> images;
+    private List<ProductImageEntity> images = new ArrayList<>();
 
     @ManyToOne(fetch =  FetchType.LAZY)
     @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
     private CategoryEntity category;
 
+    @Valid
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItemEntity> cartItem;
+    private List<CartItemEntity> cartItem = new ArrayList<>();
 
+    @Valid
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ReviewEntity> reviews;
+    private List<ReviewEntity> reviews = new ArrayList<>();
 
+    @Valid
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private InventoryEntity inventory;
 }

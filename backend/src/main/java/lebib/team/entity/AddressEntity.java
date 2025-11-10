@@ -18,16 +18,16 @@ public class AddressEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "country", nullable = false)
+    @Column(name = "country", nullable = false, length = 20)
     private String country;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city", nullable = false, length = 30)
     private String city;
 
-    @Column(name = "street", nullable = false)
+    @Column(name = "street", nullable = false, length = 45)
     private String street;
 
-    @Column(name = "postal_code", nullable = false)
+    @Column(name = "postal_code", nullable = false, length = 10)
     private String postalCode;
 
     @ManyToOne(fetch = FetchType.LAZY)

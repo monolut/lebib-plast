@@ -15,5 +15,7 @@ public interface AddressMapper {
             @Mapping(source = "postalCode", target = "postalCode")
     })
     AddressEntity toEntity(AddressDto addressDto);
+
+    @Mapping(source = "user.id", target = "userId")
     AddressDto toDto(AddressEntity addressEntity);
 }

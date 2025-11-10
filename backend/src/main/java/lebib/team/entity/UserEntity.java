@@ -29,12 +29,8 @@ public class UserEntity {
     @Column(name = "surname", length = 30, nullable = false)
     private String surname;
 
-    @Column(name = "birthDate", nullable = false)
+    @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "gender", length = 30, nullable = false)
-    private Gender gender;
 
     @Column(name = "email", length = 50, nullable = false)
     private String email;
@@ -42,22 +38,26 @@ public class UserEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender", nullable = false)
+    private Gender gender;
+
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private ProfileEntity profile;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private CartEntity cart;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", nullable = false)
+    private RoleEntity role;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AddressEntity> addresses = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
-    private RoleEntity role;
-
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<ReviewEntity> reviews;
+    private List<ReviewEntity> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderEntity> orders;
+    private List<OrderEntity> orders = new ArrayList<>();
 }

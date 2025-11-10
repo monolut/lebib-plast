@@ -33,9 +33,9 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getOrderById(id));
     }
 
-    @PostMapping
-    public ResponseEntity<OrderDto> createOrder(@RequestBody CartDto cartDto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(cartDto));
+    @PostMapping("/{cartId}")
+    public ResponseEntity<OrderDto> createOrder(@PathVariable Long cartId) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(cartId));
     }
 
     @PutMapping("/{id}")
