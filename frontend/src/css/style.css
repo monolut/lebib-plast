@@ -156,7 +156,65 @@ header{
                 gap: 1vw;
             }
 
+.main-header{
+    height: 95vh;
+    background-image: url("/frontend/src/assets/images/back-hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(90%) contrast(110%);
+    box-shadow: 0 2px 4px rgba(0,0,0,.8);
+}
 
 .hero{
-    background: url("/frontend/src/assets/images/back-hero.png") cover no-repeat;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin: auto 20vw;
+}
+    .hero-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        gap: 50px;
+    }
+        .hero-content h4{
+            width: 550px;
+        }
+        .hero-btn-wrap{
+            display: flex;
+            gap: 30px;
+        }
+
+
+.about{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.8);
+}
+    .about-wrap{
+        display: flex;
+        gap: 60px;
+    }
+        .about-wrap h4{
+            font-size: larger;
+            width: 640px;
+            text-align: center;
+            color: var(--dark-accent);
+        }
+
+.products{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent);
 }

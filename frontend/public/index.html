@@ -25,38 +25,36 @@
     </head>
     <body>
         <div id="anch-header"></div>
-        <header id="header">
-            <!--NAV BAR-->
-            <nav>
-                <div class="nav-wrap">
-                    <!--logo-->
-                    <a href="#anch-header"><h3>Le<strong>b</strong>i<strong>b</strong> <strong>P</strong>last</h3></a>
-                    <!--nav-links-->
-                    <div class="nav-links">
-                        <div class="a-back">
-                            <a href="#anch-header"><h5>Acasă</h5></a>
+        <section class="main-header">
+            <header id="header">
+                <!--NAV BAR-->
+                <nav>
+                    <div class="nav-wrap">
+                        <!--logo-->
+                        <a href="#anch-header"><h3>Le<strong>b</strong>i<strong>b</strong> <strong>P</strong>last</h3></a>
+                        <!--nav-links-->
+                        <div class="nav-links">
+                            <div class="a-back">
+                                <a href="#anch-header"><h5>Acasă</h5></a>
+                            </div>
+                            <div class="a-back">
+                                <a href="#about"><h5>Despre</h5></a>
+                            </div>
+                            <div class="a-back">
+                                <a href="#products"><h5>Produse</h5></a>
+                            </div>
+                            <div class="a-back">
+                                <a href=""><h5>Contact</h5></a>
+                            </div>
                         </div>
-                        <div class="a-back">
-                            <a href=""><h5>Despre</h5></a>
-                        </div>
-                        <div class="a-back">
-                            <a href=""><h5>Produse</h5></a>
-                        </div>
-                        <div class="a-back">
-                            <a href=""><h5>Contact</h5></a>
+                        <!--cta buttons-->
+                        <div class="cta-nav">
+                            <a href=""><img src="/frontend/src/assets/svg/Customer.svg" alt=""></a>
+                            <a href=""><img src="/frontend/src/assets/svg/Shopping Cart.svg" alt=""></a>
                         </div>
                     </div>
-                    <!--cta buttons-->
-                    <div class="cta-nav">
-                        <a href=""><img src="/frontend/src/assets/svg/Customer.svg" alt=""></a>
-                        <a href=""><img src="/frontend/src/assets/svg/Shopping Cart.svg" alt=""></a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!--MAIN-CONTENT-->
-        <main>
+                </nav>
+            </header>
             <!--HERO-->
             <section class="hero">
                 <div class="hero-content">
@@ -76,12 +74,16 @@
                         </button>
                     </div>
                 </div>
-            </section> 
+            </section>
+        </section>
+        
 
+        <!--MAIN-CONTENT-->
+        <main>
             <!--mai vedem daca va fi nevoie-->
 
             <!--ABOUT-->
-            <section class="about">
+            <section class="about" id="about">
                 <!--title-->
                 <h2><strong>-</strong> About Us <strong>-</strong></h2>
                 <!--motto-->
@@ -89,12 +91,12 @@
                 <!--description-->
                 <div class="about-wrap">
                     <h4>Transformăm ideile în forme durabile. La Lebib Plast, combinăm precizia tehnică cu pasiunea pentru inovație pentru a crea produse din mase plastice de înaltă calitate. Suntem o echipă care crede în evoluție continuă, în atenția la detalii și în parteneriate construite pe încredere. Prin soluțiile noastre personalizate și tehnologia modernă, oferim clienților eficiență, durabilitate și rezultate care se văd în timp. </h4>
-                    <img src="#" alt="">
+                    <img src="/frontend/src/assets/images/img-about.png" alt="">
                 </div>
             </section>
 
             <!--PRODUCTS-->
-            <section class="products">
+            <section class="products" id="products">
                 <!--title-->
                 <h2><strong>-</strong> Products <strong>-</strong></h2>
                 <div class="products-wrap">
