@@ -6,13 +6,17 @@
         <title>Lebib Plast</title>
 
         <!-- Favicons -->
-        <link href="/frontend/src/assets/images/favicon.png" rel="icon">
+        
 
         <!-- Fonturi -->
-        <link href="https://fonts.googleapis.com" rel="preconnect">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inika:wght@400;700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Inika:wght@400;700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
         <!-- CSS -->
         <link rel="stylesheet" href="/frontend/src/css/style.css">
 
@@ -20,88 +24,111 @@
         <script src="/frontend/src/js/script.js" defer></script>
     </head>
     <body>
-        <header class="header">
-            <div class="topbar dark-background">
-                <div class="containertopbar">
-                    <div class="contact-info">
-                        <div class="envelope">
-                            <img src="/frontend/src/assets/svg/envelope.svg" alt="">
-                            <a class="atopbar" href="mailto:contact@gmail.com">lebibplastsrl@gmail.com</a>
+        <div id="anch-header"></div>
+        <section class="main-header">
+            <header id="header">
+                <!--NAV BAR-->
+                <nav>
+                    <div class="nav-wrap">
+                        <!--logo-->
+                        <a href="#anch-header"><h3>Le<strong>b</strong>i<strong>b</strong> <strong>P</strong>last</h3></a>
+                        <!--nav-links-->
+                        <div class="nav-links">
+                            <div class="a-back">
+                                <a href="#anch-header"><h5>Acasă</h5></a>
+                            </div>
+                            <div class="a-back">
+                                <a href="#about"><h5>Despre</h5></a>
+                            </div>
+                            <div class="a-back">
+                                <a href="#products"><h5>Produse</h5></a>
+                            </div>
+                            <div class="a-back">
+                                <a href=""><h5>Contact</h5></a>
+                            </div>
                         </div>
-                        <div class="phone">
-                            <img src="/frontend/src/assets/svg/mobile-phone.svg" alt="">
-                            <span>+40 771 091 428</span>
+                        <!--cta buttons-->
+                        <div class="cta-nav">
+                            <a href=""><img src="/frontend/src/assets/svg/Customer.svg" alt=""></a>
+                            <a href=""><img src="/frontend/src/assets/svg/Shopping Cart.svg" alt=""></a>
                         </div>
                     </div>
-                    <div class="social-links">
-                        <a href="#" class="facebook atopbar a2">
-                            <img src="/frontend/src/assets/svg/facebook.svg" alt="">
-                        </a>
-                        <a href="#" class="instagram atopbar a2">
-                            <img src="/frontend/src/assets/svg/instagram.svg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar">
-                <div class="contaienrnavbar">
-                    <a href="index.html" class="anavbar">
-                        <h1>LebibPlast</h1>
-                    </a>
-                    <nav>
-                        <ul>
-                            <li><a href="" class="ali">Acasă</a></li>
-                            <li><a href="" class="ali">Despre</a></li>
-                            <li><a href="" class="ali">Produse</a></li>
-                            <li><a href="" class="ali">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <main class="main">
+                </nav>
+            </header>
+            <!--HERO-->
             <section class="hero">
                 <div class="hero-content">
-                    <div class="containerhero">
-                        <div class="row">
-                            <div class="col1" data-aos="fade-up" data-aos-delay="100">
-                                <div class="content-col1">
-                                    <h1>De La Fabrică La Tine – Ambalăm Idei, Livrăm soluții</h1>
-                                    <p>Ajutăm afacerile și gospodăriile să-și simplifice nevoile zilnice, 
-                                        oferind produse din plastic de înaltă calitate, 
-                                        de la saci până la ambalaje durabile, combinând eficiența, 
-                                        sustenabilitatea și inovația în fiecare produs pe care îl livrăm.</p>
-                                    <div class="cta-button">
-                                        <a href="" class="btn-primary">Cine suntem</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col2" data-aos="fade-up" data-aos-delay="200">
-                                <div class="hero-image">
-                                    <img src="/frontend/src/assets/images/front.png" alt="" class="hero-image">
-                                    <div class="floating-card" data-aos="fade-up" data-aos-delay="300">
-                                        <div class="card-content">
-                                            <div class="metric">
-                                                <span class="number">150+</span>
-                                                <span class="label">Livrări Apreciate</span>
-                                            </div>
-                                            <div class="metric">
-                                                <span class="number">98%</span>
-                                                <span class="label">Clienți Satisfăcuți</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!--title-->
+                    <h1><strong>P</strong>recision. <strong>P</strong>erformance. <strong>P</strong>lastics.</h1>
+                    <!--description-->
+                    <h4>De la concept la produs finit — dezvoltăm componente durabile prin tehnologie și expertiză.</h4>
+                    <!--buttons-->
+                    <div class="hero-btn-wrap">
+                        <button class="btn-primary">
+                            <h5>About Us</h5>
+                            <img src="#" alt="">
+                        </button>
+                        <button class="btn-primary">
+                            <h5>Products</h5>
+                            <img src="#" alt="">
+                        </button>
                     </div>
                 </div>
             </section>
-        </main>
-        <footer>
-            <contact>
+        </section>
+        
 
-            </contact>
+        <!--MAIN-CONTENT-->
+        <main>
+            <!--mai vedem daca va fi nevoie-->
+
+            <!--ABOUT-->
+            <section class="about" id="about">
+                <!--title-->
+                <h2><strong>-</strong> About Us <strong>-</strong></h2>
+                <!--motto-->
+                <h3>Le<strong>b</strong>i<strong>b</strong> <strong>P</strong>last — Precizie și performanță în fiecare detaliu</h3>
+                <!--description-->
+                <div class="about-wrap">
+                    <h4>Transformăm ideile în forme durabile. La Lebib Plast, combinăm precizia tehnică cu pasiunea pentru inovație pentru a crea produse din mase plastice de înaltă calitate. Suntem o echipă care crede în evoluție continuă, în atenția la detalii și în parteneriate construite pe încredere. Prin soluțiile noastre personalizate și tehnologia modernă, oferim clienților eficiență, durabilitate și rezultate care se văd în timp. </h4>
+                    <img src="/frontend/src/assets/images/img-about.png" alt="">
+                </div>
+            </section>
+
+            <!--PRODUCTS-->
+            <section class="products" id="products">
+                <!--title-->
+                <h2><strong>-</strong> Products <strong>-</strong></h2>
+                <div class="products-wrap">
+                    <!--js array-->
+                </div>
+            </section>
+        </main>
+
+        <!--FOOTER-->
+        <footer id="footer">
+            <div class="footer-wrap">
+                <div>
+                    <!--logo-->
+                    <img src="#" alt="logo">
+                    <!--motto-->
+                    <h3>Le<strong>b</strong>i<strong>b</strong> <strong>P</strong>last — Precizie și performanță în fiecare detaliu</h3>
+                </div>
+                <div>
+                    <h4>Ne puteți găsi aici!</h4>
+                    <a href=""><img src="#" alt="instagram"></a>
+                    <a href=""><img src="#" alt="facebook"></a>
+                    <a href=""><img src="#" alt="tiktok"></a>
+                </div>
+                <div>
+                    <h4>DAR ne găsiți și aici!</h4>
+                    <h3>email:</h3>
+                    <h3>telefon:</h3>
+                </div>
+            </div>
+            <div class="top-up">
+                <button><img src="#" alt="arrow-top-up"></button>
+            </div>
         </footer>
     </body>
 </html>
