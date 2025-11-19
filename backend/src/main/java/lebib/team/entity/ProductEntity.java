@@ -40,7 +40,7 @@ public class ProductEntity {
 
     @Valid
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItemEntity> cartItem = new ArrayList<>();
+    private List<CartItemEntity> cartItems = new ArrayList<>();
 
     @Valid
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

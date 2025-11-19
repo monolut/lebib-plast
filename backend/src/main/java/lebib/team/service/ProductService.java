@@ -1,6 +1,5 @@
 package lebib.team.service;
 
-import lebib.team.config.S3Config;
 import lebib.team.dto.ProductDto;
 import lebib.team.dto.ProductImageDto;
 import lebib.team.entity.CategoryEntity;
@@ -14,7 +13,6 @@ import lebib.team.mapper.ProductMapper;
 import lebib.team.repository.CategoryRepository;
 import lebib.team.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

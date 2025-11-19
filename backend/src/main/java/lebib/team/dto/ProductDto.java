@@ -29,5 +29,7 @@ public class ProductDto {
     private Double price;
     private List<ProductImageDto> images;
     private Long categoryId;
+    private List<CartItemDto> cartItems;
     private List<ReviewDto> reviews;
+    private InventoryDto inventory;
 }

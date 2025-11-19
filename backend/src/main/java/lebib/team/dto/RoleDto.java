@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,4 +18,6 @@ public class RoleDto {
     @Column(name = "role_name", nullable = false, unique = true)
     @NotNull(message = "Role name cannot be null")
     private Role role;
+
+    private List<UserDto> users;
 }

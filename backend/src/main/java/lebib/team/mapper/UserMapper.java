@@ -6,7 +6,16 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper(componentModel = "spring", uses = {RoleMapper.class, CartMapper.class, AddressMapper.class, ProfileMapper.class})
+@Mapper(componentModel = "spring", uses = {
+        RoleMapper.class,
+        ReviewMapper.class,
+        OrderMapper.class,
+        CartMapper.class,
+        AddressMapper.class,
+        ProfileMapper.class,
+        PaymentMapper.class,
+        OrderItemMapper.class
+})
 public interface UserMapper {
     @Mappings({
             @Mapping(source = "birthDate", target = "birthDate"),

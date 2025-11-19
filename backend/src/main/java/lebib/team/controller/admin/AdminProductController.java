@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import software.amazon.awssdk.annotations.NotNull;
 
 @RestController
 @RequestMapping("/api/v1/admin/products")
@@ -24,7 +23,7 @@ public class AdminProductController {
     @PostMapping
     public ResponseEntity<ProductDto> createProduct(
             @RequestBody ProductDto productDto,
-            @RequestParam @NotNull Integer quantity
+            @RequestParam Integer quantity
     ) {
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(productDto, quantity));
     }

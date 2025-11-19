@@ -1,6 +1,5 @@
 package lebib.team.service;
 
-import com.amazonaws.services.memorydb.model.UserAlreadyExistsException;
 import lebib.team.dto.UserDto;
 import lebib.team.entity.RoleEntity;
 import lebib.team.entity.UserEntity;

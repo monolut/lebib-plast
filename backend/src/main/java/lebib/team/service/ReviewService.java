@@ -1,8 +1,9 @@
 package lebib.team.service;
 
-import lebib.team.dto.OrderItemDto;
 import lebib.team.dto.ReviewDto;
-import lebib.team.entity.*;
+import lebib.team.entity.ProductEntity;
+import lebib.team.entity.ReviewEntity;
+import lebib.team.entity.UserEntity;
 import lebib.team.enums.OrderStatus;
 import lebib.team.exception.ProductNotFoundException;
 import lebib.team.exception.ReviewNotFoundException;

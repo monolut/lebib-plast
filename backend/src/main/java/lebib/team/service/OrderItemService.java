@@ -4,7 +4,6 @@ import lebib.team.dto.OrderItemDto;
 import lebib.team.entity.OrderEntity;
 import lebib.team.exception.OrderNotFoundException;
 import lebib.team.mapper.OrderItemMapper;
-import lebib.team.repository.OrderItemRepository;
 import lebib.team.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -14,4 +14,5 @@ public class ProfileDto {
     @Size(max = 300, message = "Bio length should not exceed 300 characters")
     private String bio;
     private String avatarUrl;
+    private UserDto user;
 }
