@@ -132,11 +132,26 @@
         </dependency>
 
         <!-- Test -->
+        <!-- JUnit 5 + Spring Boot Test (включает MockMvc, AssertJ, Hamcrest, JSON parsing) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Mockito (дополнительные инструменты, в том числе mock for final classes) -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 

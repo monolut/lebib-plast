@@ -1,0 +1,23 @@
+### Maven ###
+target/
+*.jar
+*.war
+*.ear
+dependency-reduced-pom.xml
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+out/
+
+### Logs ###
+*.log
+
+### Env files ###
+.env
+.env.*
+
+### OS ###
+.DS_Store
+Thumbs.db
