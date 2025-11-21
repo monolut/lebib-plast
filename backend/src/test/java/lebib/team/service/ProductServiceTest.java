@@ -1,4 +1,4 @@
-package service;
+package lebib.team.service;
 
 import lebib.team.dto.ProductDto;
 import lebib.team.dto.ProductImageDto;
@@ -12,12 +12,15 @@ import lebib.team.mapper.ProductImageMapper;
 import lebib.team.mapper.ProductMapper;
 import lebib.team.repository.CategoryRepository;
 import lebib.team.repository.ProductRepository;
-import lebib.team.service.InventoryService;
-import lebib.team.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
-import java.util.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
